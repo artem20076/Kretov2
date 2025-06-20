@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobileHub - Салон сотовой связи</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <h1><i class="fas fa-mobile-alt"></i> MobileHub</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#" id="homeLink" class="active"><i class="fas fa-home"></i> Каталог</a></li>
+                        <li><a href="#" id="adminLink"><i class="fas fa-cog"></i> Управление</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Главная страница с каталогом -->
+        <section id="homePage" class="page active">
+            <div class="page-header">
+                <h2><i class="fas fa-mobile-screen"></i> Каталог телефонов</h2>
+                <div class="search-box">
+                    <input type="text" id="phoneSearch" placeholder="Поиск по модели или описанию...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            
+            <div class="phone-categories">
+                <span class="category-tag active">Все</span>
+                <span class="category-tag"><i class="fas fa-apple"></i> iPhone</span>
+                <span class="category-tag"><i class="fas fa-android"></i> Android</span>
+                <span class="category-tag"><i class="fas fa-mobile"></i> Другие</span>
+            </div>
+            
+            <div class="phones-grid" id="phonesGrid">
+                <!-- Телефоны будут загружаться здесь -->
+            </div>
+        </section>
+
+        <!-- Страница деталей телефона -->
+        <section id="phonePage" class="page">
+            <div class="phone-detail" id="phoneDetail">
+                <!-- Детали телефона -->
+            </div>
+            <button id="backButton" class="back-btn"><i class="fas fa-arrow-left"></i> Назад</button>
+        </section>
+
+        <!-- Админ-панель -->
+        <section id="adminPage" class="page">
+            <h2><i class="fas fa-cog"></i> Управление каталогом</h2>
+            
+            <div class="admin-actions">
+                <div class="form-section">
+                    <h3><i class="fas fa-plus-circle"></i> Добавить новый телефон</h3>
+                    <form id="addPhoneForm">
+                        <div class="form-group">
+                            <label for="phoneBrand">Бренд:</label>
+                            <input type="text" id="phoneBrand" placeholder="Например: Apple" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phoneModel">Модель:</label>
+                            <input type="text" id="phoneModel" placeholder="Например: iPhone 15" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phoneType">Тип:</label>
+                            <select id="phoneType" required>
+                                <option value="IPHONE">iPhone</option>
+                                <option value="ANDROID">Android</option>
+                                <option value="OTHER">Другой</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phonePrice">Цена (₽):</label>
+                            <input type="number" id="phonePrice" placeholder="Введите цену" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phoneDesc">Описание:</label>
+                            <textarea id="phoneDesc" placeholder="Описание и характеристики" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phoneSpecs">Характеристики:</label>
+                            <textarea id="phoneSpecs" placeholder="Процессор, память, экран и т.д." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phoneImage">URL изображения:</label>
+                            <input type="text" id="phoneImage" placeholder="Ссылка на изображение">
+                        </div>
+                        
+                        <button type="submit" class="submit-btn"><i class="fas fa-save"></i> Сохранить</button>
+                    </form>
+                </div>
+
+                <div class="phones-list">
+                    <div class="list-header">
+                        <h3><i class="fas fa-list"></i> Все телефоны</h3>
+                        <button id="refreshPhones" class="refresh-btn"><i class="fas fa-sync-alt"></i> Обновить</button>
+                    </div>
+                    <div id="adminPhonesList" class="scrollable-list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 MobileHub | Салон сотовой связи</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
